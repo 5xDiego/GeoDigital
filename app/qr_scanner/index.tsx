@@ -4,8 +4,8 @@ import { Text, View, StyleSheet, Button, Vibration } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
 const qr_scanner = () => {
-    const [hasPermission, setHasPermission] = useState(null);
     const [scanned, setScanned] = useState(false);
+    const [hasPermission, setHasPermission] = useState(null);
 
     useEffect(() => {
         const getBarCodeScannerPermissions = async () => {
@@ -16,18 +16,17 @@ const qr_scanner = () => {
         getBarCodeScannerPermissions();
     }, []);
 
-    const handleBarCodeScanned = ({ type, data }) => {
+    const handleBarCodeScanned = ({ data }) => {
         setScanned(true);
-        Vibration.vibrate(500); 
-        alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+        Vibration.vibrate(500);
+        alert(`Congratulations! You have found the cache "${data}"!`);
     };
 
-    if (hasPermission === null) {
-        return <Text>Requesting camera permission...</Text>;
-    }
     if (hasPermission === false) {
-        return <Text>ERROR: No access to camera!</Text>;
+        alert("Allow GeoDigital to access your Camera for the QR-Scanner to function.");
+        return <Text> Allow camera access and restart the App... </Text>
     }
+
     return (
         <View style={styles.container}>
             <Stack.Screen options={{ title: "Camera", headerShown: false }} />
@@ -41,13 +40,14 @@ const qr_scanner = () => {
     );
 }
 
-const styles = StyleSheet.create({ 
+
+const styles = StyleSheet.create({
     container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#fff",
-  }
- }); 
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#fff",
+    }
+});
 
 export default qr_scanner; 
