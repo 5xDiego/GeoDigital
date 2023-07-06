@@ -5,6 +5,7 @@ import { StyleSheet, View } from "react-native";
 import Button from './comps/Button';
 import CamButton from './comps/camButton';
 
+
 const WelcomeScreen = () => {
     const navigation = useRouter();
 
@@ -13,8 +14,11 @@ const WelcomeScreen = () => {
             <MapView style={styles.map} >
             </MapView>
             <View style={styles.btnGroup}>
-                <Button label="Trophies" action={() => navigation.push("/trophy_room")} />
-                <Button label="Camera" action={() => navigation.push("/qr_scanner")} />
+                <Button theme="primary" label="Trophies" action={() => navigation.push("/trophy_room")} />
+                <Button theme="primary" label="+" action={() => console.log("no")} />
+            </View>
+            <View style={styles.camButton}>
+                <CamButton label="Camera" action={() => navigation.push("/qr_scanner")} />
             </View>
         </View>
     );
@@ -41,10 +45,13 @@ const styles = StyleSheet.create({
         height: "100%",
     },
     btnGroup: {
-        flex: 1,
+        flex: 1 / 2,
         position: "absolute",
 
-    }
+    },
+    camButton: {
+        position: "absolute",
+    },
 });
 
 export default WelcomeScreen;
