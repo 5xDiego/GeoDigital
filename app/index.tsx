@@ -1,14 +1,14 @@
+import React from "react";
 import { useRouter } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View, Button } from "react-native";
 
 const WelcomeScreen = () => {
   const navigation = useRouter();
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Cat X Dog</Text>
-      <Text style={styles.subtitle}>Welcome</Text>
-      <Button title="Cats tab" onPress={() => navigation.push("/cats")} />
+        <Button title="camera" onPress={() => navigation.push('/qr_scanner')} />
+        <Button title="trophy" onPress={() => navigation.push('/trophy_room')} />
     </View>
   );
 };

@@ -1,13 +1,16 @@
+import React from "react";
 import { Stack } from "expo-router";
+import { Tabs } from "expo-router";
+import { Text } from "react-native";
 
 export default function HomeLayout() {
   return (
-    <Stack
+    <Stack 
       screenOptions={{
         headerStyle: {
-          backgroundColor: "blue",
+          backgroundColor: "slateblue",
         },
-        headerTintColor: "white",
+        headerTintColor: "midnightblue",  
         headerTitleStyle: {
           fontWeight: "bold",
         },
@@ -16,7 +19,19 @@ export default function HomeLayout() {
       <Stack.Screen
         name="index"
         options={{
-          title: "Welcome",
+          title: "GeoDigital",
+        }}
+      />
+      <Stack.Screen
+        name="qr_scanner"
+        options={{
+            title: "Camera", 
+        }}
+      />
+      <Stack.Screen
+        name="trophy_room"
+        options={{
+            title: "Trophy Room", 
         }}
       />
     </Stack>
