@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import MapView from 'react-native-maps';
+import * as Location from 'expo-location';
 import { useRouter } from "expo-router";
 import { StyleSheet, View } from "react-native";
 import Button from './components/Button';
@@ -7,11 +8,39 @@ import Button from './components/Button';
 
 
 const WelcomeScreen = () => {
+    {/* used to transfer info to string-output */}
+    const [location, setLocation] = useState(null);
+    const [errorMsg, setErrorMsg] = useState(null);
+  
+    {/* Requests User to access location services */}
+    useEffect(() => {
+      (async () => {
+        
+        let { status } = await Location.requestForegroundPermissionsAsync();
+        if (status !== 'granted') {
+          setErrorMsg('Please alow GeoDigital to access your location in order for the App to function.');
+          return;
+        }
+  
+        let location = await Location.getCurrentPositionAsync({});
+        setLocation(location);
+      })();
+    }, []);
+  
+    {/**
+    -> Will return positon string (deactivated by default)
+
+    let text = 'Waiting..';
+    if (location) {
+      text = JSON.stringify(location);
+    }
+    */}
+
     const navigation = useRouter();
 
     return (
         <View style={styles.container}>
-            <MapView style={styles.map} >
+            <MapView style={styles.map} showsUserLocation={true} followsUserLocation={true} minZoomLevel={5} maxZoomLevel={20}>
             </MapView>
             <View style={styles.btnGroup}>
                 <Button action={() => navigation.push("/qr_scanner")} theme="primary" iconName="camera" />
@@ -46,7 +75,7 @@ const styles = StyleSheet.create({
     btnGroup: {
         paddingTop: 10,
         top: 0,
-        right: 0,
+        left: 0,
         height: "auto",
         width: "auto",
         position: "absolute",
