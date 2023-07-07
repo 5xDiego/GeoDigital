@@ -45,7 +45,7 @@ const WelcomeScreen = () => {
             <View style={styles.btnGroup}>
                 <Button action={() => navigation.push("/qr_scanner")} theme="primary" iconName="camera" />
                 <Button action={() => navigation.push("/trophy_room")} theme="primary" iconName="trophy" />
-                <Button action={() => console.log("no")} theme="primary" iconName="plus" />
+                <Button action={() => navigation.push("/qr_generator")} theme="primary" iconName="plus" />
             </View>
         </View>
     );

@@ -32,6 +32,12 @@ export default function HomeLayout() {
             title: "Trophy Room", 
         }}
       />
+      <Stack.Screen
+        name="qr_generator"
+        options={{
+            title: "Create QR-Cache", 
+        }}
+      />
     </Stack>
   );
 }
