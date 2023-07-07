@@ -1,6 +1,7 @@
 {
   "expo": {
     "scheme": "acme",
+    "icon" : "./assets/Icon.png",
     "web": {
       "bundler": "metro"
     },
