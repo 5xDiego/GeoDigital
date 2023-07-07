@@ -12,12 +12,12 @@ const WelcomeScreen = () => {
     return (
         <View style={styles.container}>
             <MapView style={styles.map} >
-                <View style={styles.btnGroup}>
-                    <Button action={() => navigation.push("/qr_scanner")} theme="primary" iconName="camera" />
-                    <Button action={() => navigation.push("/trophy_room")} theme="primary" iconName="trophy" />
-                    <Button action={() => console.log("no")} theme="primary" iconName="plus" />
-                </View>
             </MapView>
+            <View style={styles.btnGroup}>
+                <Button action={() => navigation.push("/qr_scanner")} theme="primary" iconName="camera" />
+                <Button action={() => navigation.push("/trophy_room")} theme="primary" iconName="trophy" />
+                <Button action={() => console.log("no")} theme="primary" iconName="plus" />
+            </View>
         </View>
     );
 };
@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: "#fff",
+        position: "relative",
     },
     title: {
         fontSize: 24,
@@ -44,14 +45,13 @@ const styles = StyleSheet.create({
     },
     btnGroup: {
         paddingTop: 10,
+        top: 0,
+        right: 0,
         height: "auto",
         width: "auto",
         position: "absolute",
         flex: 1,
         flexDirection: "column-reverse",
-    },
-    camButton: {
-        position: "absolute",
     },
 });
 
