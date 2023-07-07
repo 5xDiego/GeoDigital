@@ -36,6 +36,7 @@ const WelcomeScreen = () => {
     }
     */}
 
+    {/*navigation*/}
     const navigation = useRouter();
 
     return (

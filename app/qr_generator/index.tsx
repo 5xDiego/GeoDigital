@@ -5,12 +5,20 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { TextInput } from 'react-native-paper';
 import SvgQRCode from 'react-native-qrcode-svg';
 
+{/* gets device dimensions */}
 const { height, width } = Dimensions.get('window');
 
 const qr_generator = () => {
+    
+    {/* saves input title and text*/}
     const [qrTitle, setQrTitle] = useState("");
     const [text, setText] = useState("");
-
+    
+    {/* checks if the qrcode has been generated, 
+     so the app stops generating after the first time 
+    
+     - same as in the scanner, leave this unless you like to crash the app
+    */}
     const [generated, setGenerated] = useState(false);
 
     return (
@@ -42,7 +50,9 @@ const qr_generator = () => {
                 />
                 {generated ? 
                 (<View style={styles.container}>
-                    <SvgQRCode value={qrTitle}/>
+                    {/* generates qr code with data of qrTitle */}
+                    <SvgQRCode value={qrTitle}/> 
+                    {/* resets generated-state for new generation of qrcode */}
                     <Button title="Tap to delete" onPress={() => setGenerated(false)} />
                 </View>) : null
                 }
