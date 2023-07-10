@@ -1,11 +1,19 @@
 {
   "expo": {
     "scheme": "acme",
-    "icon" : "./assets/Icon.png",
+    "icon": "./assets/Icon.png",
     "web": {
       "bundler": "metro"
     },
     "name": "geo-digital",
-    "slug": "geo-digital"
+    "slug": "geo-digital",
+    "extra": {
+      "eas": {
+        "projectId": "f201a581-f4e9-479b-9adf-6ab38dd391f0"
+      }
+    },
+    "android": {
+      "package": "com.GeoDigital.io"
+    }
   }
 }
