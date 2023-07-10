@@ -1,0 +1,129 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    cursor: default;
+}
+
+main{
+    margin: auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 99vw;
+    height: 100vh;
+}
+
+h1{
+    margin: 15px 0 0 0;
+}
+
+h3{
+    margin: 0;
+}
+
+img{
+    height: 100%;
+    border-radius: 2px;
+    padding-right: 5px;
+}
+
+#container{
+    height: 99%;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#header{
+    display: flex;
+    flex-direction: row;
+    height: 15%;
+}
+
+#icon{
+    height: 100%;
+}
+
+#topBar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#title{
+    display: flex;
+    flex-direction: column;
+}
+
+#downloadButton{
+    background-color: green;
+    padding: 3px 4px 3px 4px;
+    border-radius: 2px;
+}
+
+#downloadButton:hover{
+    cursor: pointer;
+}
+
+#catalogue{
+    margin: 20px 0 0 10px;
+    height: 60%;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 800px) {
+    main{
+        height: auto;
+    }
+    img{
+        height: 100%;
+        width: 100%;
+        margin-top: 5px;
+    }
+    #icon{
+        width: 30%;
+    }
+    #catalogue {
+      flex-direction: row;
+      height: 60%;
+      max-width: 20%;
+    }
+    #topBar{
+        margin-right: 10px;
+    }
+  }
+
+
+@media screen and (max-width: 600px) {
+    main{
+        height: auto;
+    }
+    img{
+        width: 100%;
+        margin-top: 5px;
+    }
+    #icon{
+        width: 100%;
+    }
+    #catalogue {
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+      max-width: 100%;
+    }
+    #topBar{
+        margin-right: 10px;
+    }
+    
+  }
+
+
+#description{
+    margin-left: 10px;
+}
